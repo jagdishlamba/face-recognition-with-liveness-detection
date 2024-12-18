@@ -35,11 +35,11 @@ A simple, efficient, and user-friendly face recognition system built with Python
 2. **Install Dependencies**  
    Run the following command to install the required libraries:
    ```bash
-   pip install Flask insightface opencv-python-headless numpy onnxruntime dlib 
+   pip install Flask insightface opencv-python-headless numpy onnxruntime dlib faiss-gpu 
 
    or 
 
-   conda env create -f environment.yml
+   conda env create -f envi.yml
    ```
 
 ---
