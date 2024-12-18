@@ -1,7 +1,7 @@
 
-# Face Recognition System with Liveness detection
+# Face Recognition System with Liveness detection and FAISS
 
-A simple, efficient, and user-friendly face recognition system built with Python, Flask, and InsightFace. This project enables you to train a face recognition model and recognize faces in real-time or static images.
+A simple, efficient, and user-friendly face recognition system built with Python, Flask, and InsightFace. This project enables you to train a face recognition model and recognize faces in real-time or static images with Liveness detection FAISS.
 
 ---
 
@@ -50,7 +50,7 @@ A simple, efficient, and user-friendly face recognition system built with Python
 
 Run the application by executing:
 ```bash
-python main.py
+python app.py
 ```
 
 Open your browser and navigate to:  
