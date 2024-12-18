@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+        header { background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; }
+        nav { background-color: #333; display: flex; justify-content: center; }
+        nav a { color: white; text-decoration: none; padding: 14px 20px; display: block; transition: background-color 0.3s; }
+        nav a:hover { background-color: #575757; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1, h2 { text-align: center; }
+        form { margin-top: 20px; }
+        form label { font-weight: bold; display: block; margin-bottom: 5px; }
+        form input, form select, form button { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; }
+        form button { background-color: #4CAF50; color: white; border: none; cursor: pointer; transition: background-color 0.3s; }
+        form button:hover { background-color: #45a049; }
+        .message { padding: 10px; background-color: #f0f8ff; border: 1px solid #d4eaff; color: #0077cc; margin-bottom: 20px; border-radius: 4px; }
+        footer { text-align: center; padding: 10px 0; background-color: #333; color: white; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Face Recognition System</h1>
+    </header>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="#train">Train Model</a>
+        <a href="#recognize">Recognize Faces</a>
+    </nav>
+
+    <div class="container">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="message">
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Train Model Section -->
+        <section id="train">
+            <h2>Train Model</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter name" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter age" required>
+
+                <label for="faculty">Faculty:</label>
+                <input type="text" id="faculty" name="faculty" placeholder="Enter faculty" required>
+
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch" placeholder="Enter branch" required>
+
+                <label for="mobile">Mobile:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Enter address" required>
+
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+
+                <button type="submit">Train Model</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Recognize Faces Section -->
+        <section id="recognize">
+            <h2>Recognize Faces</h2>
+            <form action="/recognize" method="post" enctype="multipart/form-data">
+                <label for="source">Choose Input Source:</label>
+                <select id="source" name="source" required>
+                    <option value="webcam">Webcam</option>
+                    <option value="image">Image File</option>
+                </select>
+
+                <label for="image">Upload Image (if applicable):</label>
+                <input type="file" id="image" name="image" accept="image/*">
+
+                <button type="submit">Recognize Faces</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2024 Face Recognition System. All rights reserved.
+    </footer>
+</body>
+</html>
